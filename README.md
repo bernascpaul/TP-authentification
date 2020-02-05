@@ -10,6 +10,8 @@ Déployer un serveur Node.js et permettre de se connecter via un système d'auth
 
 ``` git clone -b alexandre https://github.com/bernascpaul/TP-authentification.git ```
 
+**NB** : L'application complète est sur la branche alexandre
+
 **2. Installez les dépendances du projet :** positionnez-vous dans le répertoire du projet et éxecutez la commande suivante:
 
 ``` npm install ``` 
