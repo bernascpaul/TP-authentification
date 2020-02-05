@@ -8,7 +8,7 @@ Déployer un serveur Node.js et permettre de se connecter via un système d'auth
 
 **1. Télécharger l'application :** Positionnez-vous là où vous souhaitez télécharger l'application et éxecutez la commande:
 
-``` git clone https://github.com/bernascpaul/TP-authentification.git ```
+``` git clone -b alexandre https://github.com/bernascpaul/TP-authentification.git ```
 
 **2. Installez les dépendances du projet :** positionnez-vous dans le répertoire du projet et éxecutez la commande suivante:
 
