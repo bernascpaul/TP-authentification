@@ -1,4 +1,5 @@
 const express = require('express'), app = express(), session = require('express-session');
+var path = require('path');
 
 app.use(session
   ({
@@ -51,49 +52,80 @@ function logIn(name, password) {
 app.use(bodyParser.urlencoded({ extended: false }))
 
 //Authentification et Middleware
-var auth = function(req, res, next) {
-    if (req.session && res.session.user === "amy" && req.session.admin)
-        return next();
-    else { return res.sendStatus(401); }
-}
+// var auth = function(req, res, next) {
+//     if (req.session && res.session.user === "amy" && req.session.admin)
+//         return next();
+//     else { return res.sendStatus(401); }
+// }
 
 
 //login
 app.post('/login', function (req, res, next) {
       if (!req.body.username || !req.body.password) {
-          res.send('login failed' + req.body);
+          //res.send('Aucun accès récupéré' + req.body);
+          res.sendFile(path.join(__dirname + '/co-problem-no-access.html'));
+
       } else if (logIn(req.body.username, req.body.password)) {
-          res.send("Vous vous êtes loggés avec succès !");
-          res.redirect('/content');
-      } else  { res.send(req.body) ; }
+          //res.send("Vous vous êtes loggés avec succès !");
+          //res.redirect('/content');
+
+          req.session.user = "amy";
+          req.session.admin = true;
+
+          res.sendFile(path.join(__dirname + '/login-ok.html'));
+
+      } else  { 
+          //res.send(req.body) ; 
+        //res.send("Vos identifiants sont incorrects");
+        res.sendFile(path.join(__dirname + '/bad-access.html'));
+        }
   });
 
+  //Page de Création de compte
+  app.get('/create-account', function(req, res) {
+    res.sendFile(path.join(__dirname + '/create-account.html'));
+  });
+
+  //Inscription
   app.post('/register', function (req, res, next) {
     if (!req.body.username || !req.body.password) {
-        res.send('Register failed' + req.body);
-    } else if (logIn(req.body.username, req.body.password)) {
-        res.send("Vous vous êtes loggés avec succès !");
-        res.redirect('/content');
-    } else  { res.send(req.body) ; }
+      res.sendFile(path.join(__dirname + '/create-account-problem.html'));
+        //res.send('Aucune information de compte récupérée pour inscription' + req.body);
+    } else {
+        register(req.body.username, req.body.password);
+        //res.send("Enregistrement avec succès");
+        //res.redirect('/content');
+        res.sendFile(path.join(__dirname + '/create-account-ok.html'));
+
+    }
 });
 
 
 //Logout
 app.get('/logout', function(req, res) {
     req.session.destroy();
-    res.send("logout avec succès !");
+    //res.send("logout avec succès !");
+    res.sendFile(path.join(__dirname + '/logout.html'));
 });
 
-//GetContent
-app.get('/content', auth, function(req, res) {
-    res.send("Vous pouvez seulement accèder a ce contenu si vous êtres loggés");
+//Accès zone sécurisée
+app.get('/content', function(req, res) {
+  if (req.session.admin) {
+    res.sendFile(path.join(__dirname + '/content.html'));
+  } else {
+        //res.send("Vous pouvez seulement accèder a ce contenu si vous êtres loggés"); 
+        res.sendFile(path.join(__dirname + '/content-blocked.html'));
+  }
+
+
 });
 
 app.get('/', function (req, res) {
-  res.send('Hello World!')
+  //res.send('Hello World!')
+  res.sendFile(path.join(__dirname + '/accueil.html'));
 });
 
-app.listen(3000, function () {
+app.listen(8080, function () {
   console.log('Example app listening on port 3000!')
 });
 
@@ -120,3 +152,10 @@ app.listen(3000, function () {
 //         res.send("Vous vous êtes loggés avec succès !");
 //     }
 // });
+
+//Authentification et Middleware //Version d'origine
+// var auth = function(req, res, next) {
+//   if (req.session && res.session.user === "amy" && req.session.admin)
+//       return next();
+//   else { return res.sendStatus(401); }
+// }

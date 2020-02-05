@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sample Site</title>
+
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+    <style>
+        body { padding-top:50px; }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="jumbotron">
+            <h1>Bienvenue</h1>
+            <h2>Veuillez saisir vos identifiants</h2>
+            <form method="POST" action="/login">
+                <label for="username"><b>Login</b></label>
+                <input type="text" name="username" />
+                <label for="username"><b>Password</b></label>
+                <input type="text" name="password" />
+                <input type="submit" />
+            </form>  
+            <p>Vous pouvez aussi essayer d'accéder à cette <a href="/content">zone ULTRA SECURISEE</a> ou vous <a href="/create-account">Créer un compte</a></p>              
+            
+        </div>
+    </div>
+
+</body>
+</html>
