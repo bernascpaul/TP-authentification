@@ -9,6 +9,7 @@ WORKDIR /home/node/app
 COPY package*.json ./
 
 COPY index.js ./
+COPY db.json ./
 
 USER node
 

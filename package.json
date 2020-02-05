@@ -17,6 +17,8 @@
   },
   "homepage": "https://github.com/bernascpaul/TP-authentification#readme",
   "dependencies": {
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "express-session": "^1.17.0",
+    "lowdb": "^1.0.0"
   }
 }
