@@ -41,7 +41,11 @@ Déployer un serveur Node.js et permettre de se connecter via un système d'auth
 
 - Créez un compte en suivant les instructions. Une fois la création de compte validée, revenez sur la page d'accueil, authentifiez-vous et vous devriez de nouveau avoir accès à la zone sécurisée.
 
-- Déconnectez-vous et revenez à la page d'accueil : vous ne pouvez normalement plus accéder à la zone sécurisée. 
+- Déconnectez-vous et revenez à la page d'accueil : vous ne pouvez normalement plus accéder à la zone sécurisée.
+
+# Problématiques liées à la securitée
+
+- Nous avons remarqué que les identifiants circulaient en clair dans nos requêtes (grâce à l'outil Network de Firefox et Wireshark). L'utilisation d'un certificat TSL, en https, aurait été préférable. Nous avons également remarqué que les cookies connect.sid, pma_lang et pmaUser-1 étaient utilisés lors de notre navigation.
 
 # Authors
 
