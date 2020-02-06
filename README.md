@@ -4,7 +4,7 @@ Déployer un serveur Node.js et permettre de se connecter via un système d'auth
 
 # Télécharger et installer l'application
 
-**Pré-requis** : Vous devez disposer d'une installation fonctionnelle de Docker et NPM pour utiliser cette application. Le port 80 de votre machine doit être libre. 
+**Pré-requis** : Vous devez disposer d'une installation fonctionnelle de Docker et NPM pour utiliser cette application. Le port 4207 de votre machine doit être libre. 
 
 **1. Télécharger l'application :** Positionnez-vous là où vous souhaitez télécharger l'application et éxecutez la commande:
 
