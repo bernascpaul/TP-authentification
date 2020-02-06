@@ -43,7 +43,7 @@ Déployer un serveur Node.js et permettre de se connecter via un système d'auth
 
 - Déconnectez-vous et revenez à la page d'accueil : vous ne pouvez normalement plus accéder à la zone sécurisée. 
 
-- Tous ces tests peuvent être effectués manuellement à l'aide de curl / postman en entrant, par exemple, pour la connexion, les paramètres suivant sur une requêtes POST, à l'adresse http://localhost:4207/login :
+- Tous ces tests peuvent être effectués manuellement à l'aide de curl / postman en entrant, par exemple, pour la connexion, les paramètres suivants sur une requête POST, à l'adresse http://localhost:4207/login :
 
 ``` username : Alex ``` 
 ``` password : Xela ```
